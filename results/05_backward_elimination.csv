@@ -1,0 +1,6 @@
+Step,Removed,Predictors left,S,R-sq %,R-sq(adj) %,Mallows Cp,BIC
+1,—,6,1.729,40.120,27.288,7.000,158.275
+2,X5 Entertainment screen,5,1.699,40.098,29.770,5.010,154.732
+3,X6 Study screen,4,1.675,39.765,31.733,3.166,151.371
+4,X3 Friends joining,3,1.678,37.518,31.471,2.217,149.098
+5,X4 Parental support,2,1.713,32.828,28.629,2.410,148.076

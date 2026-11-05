@@ -1,0 +1,38 @@
+# Off-screen activity in Gen Alpha - Minitab exec
+# 1) File > Open > offscreen_minitab_data.xlsx  (sheet "GenAlpha_n35")
+# 2) File > Run an Exec... > choose this file
+# 3) File > Save Project As... > offscreen_analysis.mpx
+# Column names: Y_Min LogY X1_Enjoy X2_Weather X3_Friends X4_Parent X5_ScreenFun X6_ScreenStudy
+
+# --- Descriptive statistics
+Describe 'Y_Min' 'X1_Enjoy'-'X6_ScreenStudy';
+  Mean;
+  StDeviation;
+  Minimum;
+  Median;
+  Maximum;
+  Skewness;
+  N.
+
+Histogram 'Y_Min' 'LogY' 'X1_Enjoy'-'X6_ScreenStudy'.
+
+# --- Pearson correlation (response on log scale)
+Correlation 'LogY' 'X1_Enjoy'-'X6_ScreenStudy'.
+
+# --- Multiple regression, backward elimination (alpha to remove = 0.10)
+Regress;
+  Response 'LogY';
+  Continuous 'X1_Enjoy' 'X2_Weather' 'X3_Friends' 'X4_Parent' 'X5_ScreenFun' 'X6_ScreenStudy';
+  Terms X1_Enjoy X2_Weather X3_Friends X4_Parent X5_ScreenFun X6_ScreenStudy;
+  Constant;
+  Unstandardized;
+  Backward;
+  ARemove 0.1;
+  Full;
+  Tmethod;
+  Tanova;
+  Tsummary;
+  Tcoefficients;
+  Tequation;
+  TDiagnostics 0;
+  GFourpack.
